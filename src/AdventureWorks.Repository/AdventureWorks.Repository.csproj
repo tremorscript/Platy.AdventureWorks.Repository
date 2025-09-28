@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>cbd8507e-7f3e-4f55-963b-1bbf9e24c26b</UserSecretsId>
+    </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Result.FluentValidation" />
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="NimblePros.SharedKernel" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer"/>
+    <PackageReference Include="SQLite"/>
+    <PackageReference Include="NetTopologySuite" />
+    <PackageReference Include="Injectio" PrivateAssets="all"/>
+    <PackageReference Include="Ardalis.Result" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AdventureWorks.Repository.UnitTests" />
+  </ItemGroup>
+
+</Project>
