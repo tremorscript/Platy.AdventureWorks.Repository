@@ -25,6 +25,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build Platy.AdventureWorks.Repositorysln --configuration Release
+      run: dotnet build Platy.AdventureWorks.Repository.sln --configuration Release
     - name: Test
       run: dotnet test Platy.AdventureWorks.Repository.sln --configuration Release --no-build --no-restore
