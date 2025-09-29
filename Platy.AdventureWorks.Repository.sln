@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Repository", "src\AdventureWorks.Repository\AdventureWorks.Repository.csproj", "{88C92859-B1E1-4DA0-8A71-28EEC21D9477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platy.AdventureWorks.Repository", "src\Platy.AdventureWorks.Repository\Platy.AdventureWorks.Repository.csproj", "{88C92859-B1E1-4DA0-8A71-28EEC21D9477}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{713DCC63-DB07-49FB-85B3-83018F9E58C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E77D82E9-BE92-491A-BCFE-4EF004D14804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Repository.UnitTests", "tests\AdventureWorks.Repository.UnitTests\AdventureWorks.Repository.UnitTests.csproj", "{DEF81212-32A2-48AE-AA16-9A5BC891D3BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platy.AdventureWorks.Repository.UnitTests", "tests\Platy.AdventureWorks.Repository.UnitTests\Platy.AdventureWorks.Repository.UnitTests.csproj", "{DEF81212-32A2-48AE-AA16-9A5BC891D3BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A02B28B0-F190-41E4-BDA8-B58B75111602}"
 	ProjectSection(SolutionItems) = preProject
