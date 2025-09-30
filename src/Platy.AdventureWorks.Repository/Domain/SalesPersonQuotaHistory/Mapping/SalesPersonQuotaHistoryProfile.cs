@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="SalesPersonQuotaHistory"/> .
+///   Mapper class for entity <see cref="SalesPersonQuotaHistory" /> .
 /// </summary>
-public partial class SalesPersonQuotaHistoryProfile
-    : Profile
+public class SalesPersonQuotaHistoryProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SalesPersonQuotaHistoryProfile"/> class.
-    /// </summary>
-    public SalesPersonQuotaHistoryProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesPersonQuotaHistory, Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="SalesPersonQuotaHistoryProfile" /> class.
+  /// </summary>
+  public SalesPersonQuotaHistoryProfile()
+  {
+    CreateMap<SalesPersonQuotaHistory, SalesPersonQuotaHistoryReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryCreateModel, Platy.AdventureWorks.Repository.Data.Entities.SalesPersonQuotaHistory>();
+    CreateMap<SalesPersonQuotaHistoryCreateModel, SalesPersonQuotaHistory>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesPersonQuotaHistory, Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryCreateModel>();
+    CreateMap<SalesPersonQuotaHistory, SalesPersonQuotaHistoryCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesPersonQuotaHistory, Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryUpdateModel>();
+    CreateMap<SalesPersonQuotaHistory, SalesPersonQuotaHistoryUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.SalesPersonQuotaHistory>();
+    CreateMap<SalesPersonQuotaHistoryUpdateModel, SalesPersonQuotaHistory>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryReadModel, Platy.AdventureWorks.Repository.Domain.Models.SalesPersonQuotaHistoryUpdateModel>();
-
-    }
-
+    CreateMap<SalesPersonQuotaHistoryReadModel, SalesPersonQuotaHistoryUpdateModel>();
+  }
 }

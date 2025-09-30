@@ -28,6 +28,7 @@ public string WriteCode()
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.Data.Entities;");
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.Domain.Models;");
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.Events;");
+    CodeBuilder.AppendLine("using Platy.Shared;");
     CodeBuilder.AppendLine("using FluentValidation;");
     CodeBuilder.AppendLine("using Ardalis.Result;");
     CodeBuilder.AppendLine("using Ardalis.Result.FluentValidation;");
@@ -54,7 +55,8 @@ public string WriteCode()
 
         CodeBuilder.AppendLine("}");
     }
-
+    
+    
     return CodeBuilder.ToString();
 }
 
@@ -62,6 +64,14 @@ private void GenerateClass()
 {
     var entityClass = Entity.EntityClass.ToSafeName();
 
+    var identityPropertyType = "int";
+    foreach (var property in Entity.Properties)
+    {
+      if (property.ValueGenerated?.ToString() == "OnAdd") {
+         identityPropertyType = property.SystemType.ToType();
+      }
+    }
+    
     if (GeneratorOptions.Data.Entity.Document)
     {
         CodeBuilder.AppendLine("/// <summary>");
@@ -72,7 +82,7 @@ private void GenerateClass()
 
     using (CodeBuilder.Indent())
     {
-      CodeBuilder.AppendLine($": EntityRepository<{entityClass}ReadModel, {entityClass}CreateModel, {entityClass}UpdateModel>");
+      CodeBuilder.AppendLine($": EntityRepository<{entityClass},{identityPropertyType}, {entityClass}ReadModel, {entityClass}CreateModel, {entityClass}UpdateModel>, I{entityClass}Repository");
     }
 
     CodeBuilder.AppendLine("{");
@@ -84,6 +94,16 @@ private void GenerateClass()
     }
 
     CodeBuilder.AppendLine("}");
+    
+    CodeBuilder.AppendLine();
+    CodeBuilder.AppendLine($"public interface I{entityClass}Repository");
+    using (CodeBuilder.Indent())
+    {
+      CodeBuilder.AppendLine($": IRepository<{entityClass},{identityPropertyType}, {entityClass}ReadModel, {entityClass}CreateModel, {entityClass}UpdateModel>");
+    }
+    CodeBuilder.AppendLine("{");
+    CodeBuilder.AppendLine("}");
+    CodeBuilder.AppendLine();
 }
 
 private void GenerateConstructor()
@@ -162,7 +182,7 @@ private void GenerateAsyncMethods()
     }
     CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> CreateAsync({entityClass}CreateModel createModel,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
-    CodeBuilder.AppendLine($"   await CreateModel<{entityClass}, {entityClass}CreatedEvent, {identityPropertyType}>(createModel,");
+    CodeBuilder.AppendLine($"   await CreateModel(createModel,");
     CodeBuilder.AppendLine($"     new {entityClass}CreatedEvent(),");
     CodeBuilder.AppendLine($"     cancellationToken);");
 
@@ -176,7 +196,7 @@ private void GenerateAsyncMethods()
     CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> Update({identityPropertyType} id,");
     CodeBuilder.AppendLine($"   {entityClass}UpdateModel updateModel,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
-    CodeBuilder.AppendLine($"   await UpdateModel<{entityClass}, {entityClass}UpdatedEvent, {identityPropertyType}>(id,");
+    CodeBuilder.AppendLine($"   await UpdateModel(id,");
     CodeBuilder.AppendLine($"     updateModel,");
     CodeBuilder.AppendLine($"     new {entityClass}UpdatedEvent(),");
     CodeBuilder.AppendLine($"     cancellationToken);");
@@ -190,7 +210,7 @@ private void GenerateAsyncMethods()
     }
     CodeBuilder.AppendLine($"  public virtual async Task<Result<{entityClass}ReadModel>> Delete({identityPropertyType} id,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
-    CodeBuilder.AppendLine($"   await DeleteModel<{entityClass}, {entityClass}DeletedEvent, {identityPropertyType}>(id,");
+    CodeBuilder.AppendLine($"   await DeleteModel(id,");
     CodeBuilder.AppendLine($"     new {entityClass}DeletedEvent(),");
     CodeBuilder.AppendLine($"     cancellationToken);");
     

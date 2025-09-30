@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Vendor"/> .
+///   Mapper class for entity <see cref="Vendor" /> .
 /// </summary>
-public partial class VendorProfile
-    : Profile
+public class VendorProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VendorProfile"/> class.
-    /// </summary>
-    public VendorProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Vendor, Platy.AdventureWorks.Repository.Domain.Models.VendorReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VendorProfile" /> class.
+  /// </summary>
+  public VendorProfile()
+  {
+    CreateMap<Vendor, VendorReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VendorCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Vendor>();
+    CreateMap<VendorCreateModel, Vendor>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Vendor, Platy.AdventureWorks.Repository.Domain.Models.VendorCreateModel>();
+    CreateMap<Vendor, VendorCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Vendor, Platy.AdventureWorks.Repository.Domain.Models.VendorUpdateModel>();
+    CreateMap<Vendor, VendorUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VendorUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Vendor>();
+    CreateMap<VendorUpdateModel, Vendor>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VendorReadModel, Platy.AdventureWorks.Repository.Domain.Models.VendorUpdateModel>();
-
-    }
-
+    CreateMap<VendorReadModel, VendorUpdateModel>();
+  }
 }

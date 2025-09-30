@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Shift"/> .
+///   Mapper class for entity <see cref="Shift" /> .
 /// </summary>
-public partial class ShiftProfile
-    : Profile
+public class ShiftProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ShiftProfile"/> class.
-    /// </summary>
-    public ShiftProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Shift, Platy.AdventureWorks.Repository.Domain.Models.ShiftReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="ShiftProfile" /> class.
+  /// </summary>
+  public ShiftProfile()
+  {
+    CreateMap<Shift, ShiftReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShiftCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Shift>();
+    CreateMap<ShiftCreateModel, Shift>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Shift, Platy.AdventureWorks.Repository.Domain.Models.ShiftCreateModel>();
+    CreateMap<Shift, ShiftCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Shift, Platy.AdventureWorks.Repository.Domain.Models.ShiftUpdateModel>();
+    CreateMap<Shift, ShiftUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShiftUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Shift>();
+    CreateMap<ShiftUpdateModel, Shift>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShiftReadModel, Platy.AdventureWorks.Repository.Domain.Models.ShiftUpdateModel>();
-
-    }
-
+    CreateMap<ShiftReadModel, ShiftUpdateModel>();
+  }
 }

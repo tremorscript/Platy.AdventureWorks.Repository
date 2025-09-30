@@ -2,5 +2,5 @@
 
 public interface ITrackConcurrency
 {
-    string RowVersion { get; set; }
+  string RowVersion { get; set; }
 }

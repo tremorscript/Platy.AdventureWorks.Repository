@@ -1,6 +1,5 @@
 ﻿global using System.Net.Mail;
 global using System.Reflection;
-global using Ardalis.SharedKernel;
 global using Microsoft.Data.SqlClient;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,4 +8,4 @@ global using Microsoft.Extensions.Logging;
 global using AutoMapper;
 global using NetTopologySuite;
 global using Injectio.Attributes;
-global using Platy.AdventureWorks.Repository.BaseModels;
+global using Platy.Shared;

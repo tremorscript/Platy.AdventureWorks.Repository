@@ -1,77 +1,99 @@
-using System;
-using System.Collections.Generic;
-
-using Microsoft.EntityFrameworkCore;
+using Platy.AdventureWorks.Repository.Data.Entities;
 
 namespace Platy.AdventureWorks.Repository.Data.EntityConfiguration;
 
 /// <summary>
-/// Allows configuration for an entity type <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
+///   Allows configuration for an entity type <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
 /// </summary>
-internal partial class ProductCategoryConfiguration
-    : IEntityTypeConfiguration<Platy.AdventureWorks.Repository.Data.Entities.ProductCategory>
+internal class ProductCategoryConfiguration
+  : IEntityTypeConfiguration<ProductCategory>
 {
-    /// <summary>
-    /// Configures the entity of type <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
-    /// </summary>
-    /// <param name="builder">The builder to be used to configure the entity type.</param>
-    public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Platy.AdventureWorks.Repository.Data.Entities.ProductCategory> builder)
-    {
-        #region Generated Configure
-        // table
-        builder.ToTable("ProductCategory", "Production");
+  /// <summary>
+  ///   Configures the entity of type <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
+  /// </summary>
+  /// <param name="builder">The builder to be used to configure the entity type.</param>
+  public void Configure(EntityTypeBuilder<ProductCategory> builder)
+  {
+    #region Generated Configure
 
-        // key
-        builder.HasKey(t => t.Id);
+    // table
+    builder.ToTable("ProductCategory", "Production");
 
-        // properties
-        builder.Property(t => t.Id)
-            .IsRequired()
-            .HasColumnName("ProductCategoryID")
-            .HasColumnType("int")
-            .ValueGeneratedOnAdd();
+    // key
+    builder.HasKey(t => t.Id);
 
-        builder.Property(t => t.Name)
-            .IsRequired()
-            .HasColumnName("Name")
-            .HasColumnType("nvarchar(50)")
-            .HasMaxLength(50);
+    // properties
+    builder.Property(t => t.Id)
+      .IsRequired()
+      .HasColumnName("ProductCategoryID")
+      .HasColumnType("int")
+      .ValueGeneratedOnAdd();
 
-        builder.Property(t => t.Rowguid)
-            .IsRequired()
-            .HasColumnName("rowguid")
-            .HasColumnType("uniqueidentifier")
-            .HasDefaultValueSql("(newid())");
+    builder.Property(t => t.Name)
+      .IsRequired()
+      .HasColumnName("Name")
+      .HasColumnType("nvarchar(50)")
+      .HasMaxLength(50);
 
-        builder.Property(t => t.ModifiedDate)
-            .IsRequired()
-            .HasColumnName("ModifiedDate")
-            .HasColumnType("datetime")
-            .HasDefaultValueSql("(getdate())");
+    builder.Property(t => t.Rowguid)
+      .IsRequired()
+      .HasColumnName("rowguid")
+      .HasColumnType("uniqueidentifier")
+      .HasDefaultValueSql("(newid())");
 
-        // relationships
-        #endregion
-    }
+    builder.Property(t => t.ModifiedDate)
+      .IsRequired()
+      .HasColumnName("ModifiedDate")
+      .HasColumnType("datetime")
+      .HasDefaultValueSql("(getdate())");
 
-    #region Generated Constants
-    internal readonly struct Table
-    {
-        /// <summary>Table Schema name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" /></summary>
-        public const string Schema = "Production";
-        /// <summary>Table Name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" /></summary>
-        public const string Name = "ProductCategory";
-    }
+    // relationships
 
-    internal readonly struct Columns
-    {
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Id" /></summary>
-        public const string Id = "ProductCategoryID";
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Name" /></summary>
-        public const string Name = "Name";
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Rowguid" /></summary>
-        public const string Rowguid = "rowguid";
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.ModifiedDate" /></summary>
-        public const string ModifiedDate = "ModifiedDate";
-    }
     #endregion
+  }
+
+  #region Generated Constants
+
+  internal readonly struct Table
+  {
+    /// <summary>
+    ///   Table Schema name constant for entity
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
+    /// </summary>
+    public const string Schema = "Production";
+
+    /// <summary>
+    ///   Table Name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory" />
+    /// </summary>
+    public const string Name = "ProductCategory";
+  }
+
+  internal readonly struct Columns
+  {
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Id" />
+    /// </summary>
+    public const string Id = "ProductCategoryID";
+
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Name" />
+    /// </summary>
+    public const string Name = "Name";
+
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.Rowguid" />
+    /// </summary>
+    public const string Rowguid = "rowguid";
+
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.ProductCategory.ModifiedDate" />
+    /// </summary>
+    public const string ModifiedDate = "ModifiedDate";
+  }
+
+  #endregion
 }

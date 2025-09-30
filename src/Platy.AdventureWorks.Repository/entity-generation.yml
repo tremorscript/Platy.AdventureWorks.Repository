@@ -15,7 +15,7 @@ database:
     - Production
     - Purchasing
     - Sales
-# exclude tables or columns: Changed in v7.x
+  # exclude tables or columns: Changed in v7.x
   exclude:
     # list of expressions for tables to exclude, source is Schema.TableName
     tables:
@@ -36,7 +36,7 @@ data:
     namespace: '{Project.Namespace}.Data.Entities'
     directory: '{Project.Directory}\Data\Entities'
     document: true
-    entityNaming: Singular 
+    entityNaming: Singular
     relationshipNaming: Plural
     mappingAttributes: true
     prefixWithSchemaName: false
@@ -45,7 +45,7 @@ data:
       properties:
         - ^{Table.Name}(?=Id|Name)
   mapping:
-    generate: false 
+    generate: false
     rowVersion: Long
     namespace: '{Project.Namespace}.Data.EntityConfiguration'
     directory: '{Project.Directory}\Data\EntityConfiguration'
@@ -129,8 +129,8 @@ model:
     attributes: '[RegisterSingleton<IValidator<{Model.Name}>>]'
     document: true
 script:
-# collection script template with current Model as a variable
-# collection of script template with current Entity as a variable
+  # collection script template with current Model as a variable
+  # collection of script template with current Entity as a variable
   context:
     - templatePath: '.\templates\cs-datacontext.csx'           # path to script file
       namespace: '{Project.Namespace}.Data'
@@ -150,12 +150,12 @@ script:
       directory: '{Project.Directory}\Data\EntityConfiguration'
       fileName: '{Entity.Name}Configuration.cs'               # filename to save script output
       overwrite: true                                  # overwrite existing file
-      merge: false 
+      merge: false
     - templatePath: '.\templates\cs-entity.csx'           # path to script file
       fileName: '{Entity.Name}.cs'               # filename to save script output
       namespace: '{Project.Namespace}.Data.Entities'
       directory: '{Project.Directory}\Data\Entities'
-      baseClass: EntityBase 
+      baseClass: EntityBase
       overwrite: true                                  # overwrite existing file
       merge: true
     - templatePath: '.\templates\cs-repository.csx'           # path to script file

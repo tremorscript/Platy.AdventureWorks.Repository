@@ -2,5 +2,5 @@
 
 public interface ITrackDeleted
 {
-    bool IsDeleted { get; set; }
+  bool IsDeleted { get; set; }
 }

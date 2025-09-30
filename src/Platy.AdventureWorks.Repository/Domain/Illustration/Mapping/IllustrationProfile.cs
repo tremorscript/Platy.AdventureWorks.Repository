@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Illustration"/> .
+///   Mapper class for entity <see cref="Illustration" /> .
 /// </summary>
-public partial class IllustrationProfile
-    : Profile
+public class IllustrationProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="IllustrationProfile"/> class.
-    /// </summary>
-    public IllustrationProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Illustration, Platy.AdventureWorks.Repository.Domain.Models.IllustrationReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="IllustrationProfile" /> class.
+  /// </summary>
+  public IllustrationProfile()
+  {
+    CreateMap<Illustration, IllustrationReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.IllustrationCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Illustration>();
+    CreateMap<IllustrationCreateModel, Illustration>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Illustration, Platy.AdventureWorks.Repository.Domain.Models.IllustrationCreateModel>();
+    CreateMap<Illustration, IllustrationCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Illustration, Platy.AdventureWorks.Repository.Domain.Models.IllustrationUpdateModel>();
+    CreateMap<Illustration, IllustrationUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.IllustrationUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Illustration>();
+    CreateMap<IllustrationUpdateModel, Illustration>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.IllustrationReadModel, Platy.AdventureWorks.Repository.Domain.Models.IllustrationUpdateModel>();
-
-    }
-
+    CreateMap<IllustrationReadModel, IllustrationUpdateModel>();
+  }
 }

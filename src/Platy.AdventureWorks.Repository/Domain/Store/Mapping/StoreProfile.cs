@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Store"/> .
+///   Mapper class for entity <see cref="Store" /> .
 /// </summary>
-public partial class StoreProfile
-    : Profile
+public class StoreProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="StoreProfile"/> class.
-    /// </summary>
-    public StoreProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Store, Platy.AdventureWorks.Repository.Domain.Models.StoreReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="StoreProfile" /> class.
+  /// </summary>
+  public StoreProfile()
+  {
+    CreateMap<Store, StoreReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StoreCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Store>();
+    CreateMap<StoreCreateModel, Store>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Store, Platy.AdventureWorks.Repository.Domain.Models.StoreCreateModel>();
+    CreateMap<Store, StoreCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Store, Platy.AdventureWorks.Repository.Domain.Models.StoreUpdateModel>();
+    CreateMap<Store, StoreUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StoreUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Store>();
+    CreateMap<StoreUpdateModel, Store>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StoreReadModel, Platy.AdventureWorks.Repository.Domain.Models.StoreUpdateModel>();
-
-    }
-
+    CreateMap<StoreReadModel, StoreUpdateModel>();
+  }
 }

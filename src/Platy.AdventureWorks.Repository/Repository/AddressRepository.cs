@@ -1,81 +1,91 @@
-using System;
-using System.Collections.Generic;
-
+using Ardalis.Result;
+using FluentValidation;
+using MediatR;
 using Platy.AdventureWorks.Repository.BaseRepository;
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 using Platy.AdventureWorks.Repository.Events;
-using FluentValidation;
-using Ardalis.Result;
-using Ardalis.Result.FluentValidation;
-using MediatR;
+
 namespace Platy.AdventureWorks.Repository;
 
 /// <summary>
-/// Repository class representing data for table 'Address'.
+///   Repository class representing data for table 'Address'.
 /// </summary>
 public class AddressRepository
-    : EntityRepository<AddressReadModel, AddressCreateModel, AddressUpdateModel>
+  : EntityRepository<Address, int, AddressReadModel, AddressCreateModel, AddressUpdateModel>, IAddressRepository
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AddressRepository"/> class.
-    /// </summary>
-    public AddressRepository(IServiceProvider serviceProvider,
-        IMapper mapper,
-        IMediator mediator,
-        ILogger<AddressRepository> logger,
-        IValidator<AddressCreateModel> createValidator,
-        IValidator<AddressUpdateModel> updateValidator)
-        : base(serviceProvider, mapper, logger, mediator, createValidator, updateValidator)
-    {
-        #region Generated Constructor
-        #endregion
-    }
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="AddressRepository" /> class.
+  /// </summary>
+  public AddressRepository(IServiceProvider serviceProvider,
+    IMapper mapper,
+    IMediator mediator,
+    ILogger<AddressRepository> logger,
+    IValidator<AddressCreateModel> createValidator,
+    IValidator<AddressUpdateModel> updateValidator)
+    : base(serviceProvider, mapper, logger, mediator, createValidator, updateValidator)
+  {
+  }
 
-    #region Generated methods
+  #region Generated methods
 
-    /// <summary>
-    /// Gets an <see cref="AddressReadModel" />.
-    /// </summary>
-    public async Task<Result<AddressReadModel>> GetAsync(int id,
-      CancellationToken cancellationToken) =>
-      await ReadModel<Address, int>(id,
-        cancellationToken);
+  /// <summary>
+  ///   Gets an <see cref="AddressReadModel" />.
+  /// </summary>
+  public async Task<Result<AddressReadModel>> GetAsync(int id,
+    CancellationToken cancellationToken)
+  {
+    return await ReadModel<Address, int>(id,
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Returns a list of <see cref="AddressReadModel" />.
-    /// </summary>
-    public async Task<Result<IReadOnlyList<AddressReadModel>>> List(CancellationToken cancellationToken) =>
-       await QueryModel<Address,int>(null, cancellationToken);
+  /// <summary>
+  ///   Returns a list of <see cref="AddressReadModel" />.
+  /// </summary>
+  public async Task<Result<IReadOnlyList<AddressReadModel>>> List(CancellationToken cancellationToken)
+  {
+    return await QueryModel<Address, int>(null, cancellationToken);
+  }
 
-    /// <summary>
-    /// Creates an <see cref="Address" />.
-    /// </summary>
-     public async Task<Result<AddressReadModel>> CreateAsync(AddressCreateModel createModel,
-       CancellationToken cancellationToken) =>
-       await CreateModel<Address, AddressCreatedEvent, int>(createModel,
-         new AddressCreatedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Creates an <see cref="Address" />.
+  /// </summary>
+  public async Task<Result<AddressReadModel>> CreateAsync(AddressCreateModel createModel,
+    CancellationToken cancellationToken)
+  {
+    return await CreateModel(createModel,
+      new AddressCreatedEvent(),
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Updates a <see cref="Address" />.
-    /// </summary>
-     public async Task<Result<AddressReadModel>> Update(int id,
-       AddressUpdateModel updateModel,
-       CancellationToken cancellationToken) =>
-       await UpdateModel<Address, AddressUpdatedEvent, int>(id,
-         updateModel,
-         new AddressUpdatedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Updates a <see cref="Address" />.
+  /// </summary>
+  public async Task<Result<AddressReadModel>> Update(int id,
+    AddressUpdateModel updateModel,
+    CancellationToken cancellationToken)
+  {
+    return await UpdateModel(id,
+      updateModel,
+      new AddressUpdatedEvent(),
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Deletes a <see cref="Address" />.
-    /// </summary>
-      public virtual async Task<Result<AddressReadModel>> Delete(int id,
-       CancellationToken cancellationToken) =>
-       await DeleteModel<Address, AddressDeletedEvent, int>(id,
-         new AddressDeletedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Deletes a <see cref="Address" />.
+  /// </summary>
+  public virtual async Task<Result<AddressReadModel>> Delete(int id,
+    CancellationToken cancellationToken)
+  {
+    return await DeleteModel(id,
+      new AddressDeletedEvent(),
+      cancellationToken);
+  }
 
-    #endregion
+  #endregion
+}
+
+public interface IAddressRepository
+  : IRepository<Address, int, AddressReadModel, AddressCreateModel, AddressUpdateModel>
+{
 }

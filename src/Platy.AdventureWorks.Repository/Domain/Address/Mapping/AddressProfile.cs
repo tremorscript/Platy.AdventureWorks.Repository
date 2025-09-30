@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Address"/> .
+///   Mapper class for entity <see cref="Address" /> .
 /// </summary>
-public partial class AddressProfile
-    : Profile
+public class AddressProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AddressProfile"/> class.
-    /// </summary>
-    public AddressProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Address, Platy.AdventureWorks.Repository.Domain.Models.AddressReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="AddressProfile" /> class.
+  /// </summary>
+  public AddressProfile()
+  {
+    CreateMap<Address, AddressReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Address>();
+    CreateMap<AddressCreateModel, Address>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Address, Platy.AdventureWorks.Repository.Domain.Models.AddressCreateModel>();
+    CreateMap<Address, AddressCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Address, Platy.AdventureWorks.Repository.Domain.Models.AddressUpdateModel>();
+    CreateMap<Address, AddressUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Address>();
+    CreateMap<AddressUpdateModel, Address>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressReadModel, Platy.AdventureWorks.Repository.Domain.Models.AddressUpdateModel>();
-
-    }
-
+    CreateMap<AddressReadModel, AddressUpdateModel>();
+  }
 }

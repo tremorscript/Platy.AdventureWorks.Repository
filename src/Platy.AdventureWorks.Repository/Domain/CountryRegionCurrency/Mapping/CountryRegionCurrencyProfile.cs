@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="CountryRegionCurrency"/> .
+///   Mapper class for entity <see cref="CountryRegionCurrency" /> .
 /// </summary>
-public partial class CountryRegionCurrencyProfile
-    : Profile
+public class CountryRegionCurrencyProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CountryRegionCurrencyProfile"/> class.
-    /// </summary>
-    public CountryRegionCurrencyProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.CountryRegionCurrency, Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="CountryRegionCurrencyProfile" /> class.
+  /// </summary>
+  public CountryRegionCurrencyProfile()
+  {
+    CreateMap<CountryRegionCurrency, CountryRegionCurrencyReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyCreateModel, Platy.AdventureWorks.Repository.Data.Entities.CountryRegionCurrency>();
+    CreateMap<CountryRegionCurrencyCreateModel, CountryRegionCurrency>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.CountryRegionCurrency, Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyCreateModel>();
+    CreateMap<CountryRegionCurrency, CountryRegionCurrencyCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.CountryRegionCurrency, Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyUpdateModel>();
+    CreateMap<CountryRegionCurrency, CountryRegionCurrencyUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.CountryRegionCurrency>();
+    CreateMap<CountryRegionCurrencyUpdateModel, CountryRegionCurrency>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyReadModel, Platy.AdventureWorks.Repository.Domain.Models.CountryRegionCurrencyUpdateModel>();
-
-    }
-
+    CreateMap<CountryRegionCurrencyReadModel, CountryRegionCurrencyUpdateModel>();
+  }
 }

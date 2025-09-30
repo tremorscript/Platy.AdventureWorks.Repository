@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="VStoreWithDemographics"/> .
+///   Mapper class for entity <see cref="VStoreWithDemographics" /> .
 /// </summary>
-public partial class VStoreWithDemographicsProfile
-    : Profile
+public class VStoreWithDemographicsProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VStoreWithDemographicsProfile"/> class.
-    /// </summary>
-    public VStoreWithDemographicsProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithDemographics, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VStoreWithDemographicsProfile" /> class.
+  /// </summary>
+  public VStoreWithDemographicsProfile()
+  {
+    CreateMap<VStoreWithDemographics, VStoreWithDemographicsReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsCreateModel, Platy.AdventureWorks.Repository.Data.Entities.VStoreWithDemographics>();
+    CreateMap<VStoreWithDemographicsCreateModel, VStoreWithDemographics>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithDemographics, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsCreateModel>();
+    CreateMap<VStoreWithDemographics, VStoreWithDemographicsCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithDemographics, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsUpdateModel>();
+    CreateMap<VStoreWithDemographics, VStoreWithDemographicsUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.VStoreWithDemographics>();
+    CreateMap<VStoreWithDemographicsUpdateModel, VStoreWithDemographics>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsReadModel, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithDemographicsUpdateModel>();
-
-    }
-
+    CreateMap<VStoreWithDemographicsReadModel, VStoreWithDemographicsUpdateModel>();
+  }
 }

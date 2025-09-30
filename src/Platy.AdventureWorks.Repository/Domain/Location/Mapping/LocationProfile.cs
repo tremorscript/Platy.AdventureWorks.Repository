@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="Location"/> .
+///   Mapper class for entity <see cref="Location" /> .
 /// </summary>
-public partial class LocationProfile
-    : Profile
+public class LocationProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LocationProfile"/> class.
-    /// </summary>
-    public LocationProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Location, Platy.AdventureWorks.Repository.Domain.Models.LocationReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="LocationProfile" /> class.
+  /// </summary>
+  public LocationProfile()
+  {
+    CreateMap<Location, LocationReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.LocationCreateModel, Platy.AdventureWorks.Repository.Data.Entities.Location>();
+    CreateMap<LocationCreateModel, Location>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Location, Platy.AdventureWorks.Repository.Domain.Models.LocationCreateModel>();
+    CreateMap<Location, LocationCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.Location, Platy.AdventureWorks.Repository.Domain.Models.LocationUpdateModel>();
+    CreateMap<Location, LocationUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.LocationUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.Location>();
+    CreateMap<LocationUpdateModel, Location>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.LocationReadModel, Platy.AdventureWorks.Repository.Domain.Models.LocationUpdateModel>();
-
-    }
-
+    CreateMap<LocationReadModel, LocationUpdateModel>();
+  }
 }

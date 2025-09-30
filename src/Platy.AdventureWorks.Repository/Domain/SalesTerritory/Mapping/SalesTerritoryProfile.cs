@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="SalesTerritory"/> .
+///   Mapper class for entity <see cref="SalesTerritory" /> .
 /// </summary>
-public partial class SalesTerritoryProfile
-    : Profile
+public class SalesTerritoryProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SalesTerritoryProfile"/> class.
-    /// </summary>
-    public SalesTerritoryProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesTerritory, Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="SalesTerritoryProfile" /> class.
+  /// </summary>
+  public SalesTerritoryProfile()
+  {
+    CreateMap<SalesTerritory, SalesTerritoryReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryCreateModel, Platy.AdventureWorks.Repository.Data.Entities.SalesTerritory>();
+    CreateMap<SalesTerritoryCreateModel, SalesTerritory>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesTerritory, Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryCreateModel>();
+    CreateMap<SalesTerritory, SalesTerritoryCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SalesTerritory, Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryUpdateModel>();
+    CreateMap<SalesTerritory, SalesTerritoryUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.SalesTerritory>();
+    CreateMap<SalesTerritoryUpdateModel, SalesTerritory>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryReadModel, Platy.AdventureWorks.Repository.Domain.Models.SalesTerritoryUpdateModel>();
-
-    }
-
+    CreateMap<SalesTerritoryReadModel, SalesTerritoryUpdateModel>();
+  }
 }

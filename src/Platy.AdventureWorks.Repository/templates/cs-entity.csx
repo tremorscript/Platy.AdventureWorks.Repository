@@ -49,7 +49,7 @@ private void GenerateClass()
     {
         CodeBuilder.AppendLine($"[System.ComponentModel.DataAnnotations.Schema.Table(\"{Entity.TableName}\", Schema = \"{Entity.TableSchema}\")]");
     }
-    CodeBuilder.AppendLine($"internal partial class {entityClass}");
+    CodeBuilder.AppendLine($"public partial class {entityClass}");
 
     if (TemplateOptions.BaseClass.HasValue())
     {

@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="ShipMethod"/> .
+///   Mapper class for entity <see cref="ShipMethod" /> .
 /// </summary>
-public partial class ShipMethodProfile
-    : Profile
+public class ShipMethodProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ShipMethodProfile"/> class.
-    /// </summary>
-    public ShipMethodProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ShipMethod, Platy.AdventureWorks.Repository.Domain.Models.ShipMethodReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="ShipMethodProfile" /> class.
+  /// </summary>
+  public ShipMethodProfile()
+  {
+    CreateMap<ShipMethod, ShipMethodReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShipMethodCreateModel, Platy.AdventureWorks.Repository.Data.Entities.ShipMethod>();
+    CreateMap<ShipMethodCreateModel, ShipMethod>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ShipMethod, Platy.AdventureWorks.Repository.Domain.Models.ShipMethodCreateModel>();
+    CreateMap<ShipMethod, ShipMethodCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ShipMethod, Platy.AdventureWorks.Repository.Domain.Models.ShipMethodUpdateModel>();
+    CreateMap<ShipMethod, ShipMethodUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShipMethodUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.ShipMethod>();
+    CreateMap<ShipMethodUpdateModel, ShipMethod>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ShipMethodReadModel, Platy.AdventureWorks.Repository.Domain.Models.ShipMethodUpdateModel>();
-
-    }
-
+    CreateMap<ShipMethodReadModel, ShipMethodUpdateModel>();
+  }
 }

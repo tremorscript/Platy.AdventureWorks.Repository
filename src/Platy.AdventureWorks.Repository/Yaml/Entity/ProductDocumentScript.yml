@@ -5,33 +5,33 @@ TableNaming: Singular
 ContextProperty: ProductDocuments
 TableSchema: 'Production'
 TableName: 'ProductDocument'
-MappingClass: ProductDocumentMap
+MappingClass: ProductDocumentConfiguration
 MappingNamespace: 'Platy.AdventureWorks.Repository.Data.EntityConfiguration'
 MapperClass: ProductDocumentProfile
 MapperNamespace: 'ProductDocumentProfile'
 MapperBaseClass: Profile
 IsView: False
 Properties:
-    - PropertyName: ProductID
-      ColumnName: 'ProductID'
-      StoreType: @int
-      NativeType: '@int'
-      DataType: Int32
-      SystemType: Int32
-      IsNullable: False
-      IsPrimaryKey: True
-      IsForeignKey: True
-      IsRowVersion: False
-      IsUnique: False
-    - PropertyName: ModifiedDate
-      ColumnName: 'ModifiedDate'
-      StoreType: datetime
-      NativeType: 'datetime'
-      DataType: DateTime
-      SystemType: DateTime
-      Default: '(getdate())'
-      IsNullable: False
-      IsPrimaryKey: False
-      IsForeignKey: False
-      IsRowVersion: False
-      IsUnique: False
+  - PropertyName: ProductId
+    ColumnName: 'ProductID'
+    StoreType: @int
+    NativeType: '@int'
+    DataType: Int32
+    SystemType: Int32
+    IsNullable: False
+    IsPrimaryKey: True
+    IsForeignKey: True
+    IsRowVersion: False
+    IsUnique: False
+  - PropertyName: ModifiedDate
+    ColumnName: 'ModifiedDate'
+    StoreType: datetime
+    NativeType: 'datetime'
+    DataType: DateTime
+    SystemType: DateTime
+    Default: '(getdate())'
+    IsNullable: False
+    IsPrimaryKey: False
+    IsForeignKey: False
+    IsRowVersion: False
+    IsUnique: False

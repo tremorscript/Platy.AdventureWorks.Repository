@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
 using Platy.AdventureWorks.Repository.BaseEvent;
 
 namespace Platy.AdventureWorks.Repository.Events;
 
 /// <summary>
-/// Event class representing the data when changes are made to the table 'CreditCard'.
+///   Event class representing the data when changes are made to the table 'CreditCard'.
 /// </summary>
 public class CreditCardDeletedEvent
-    : EntityEventBase
+  : EntityEventBase
 {
 }

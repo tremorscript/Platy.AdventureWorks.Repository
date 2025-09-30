@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="ScrapReason"/> .
+///   Mapper class for entity <see cref="ScrapReason" /> .
 /// </summary>
-public partial class ScrapReasonProfile
-    : Profile
+public class ScrapReasonProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ScrapReasonProfile"/> class.
-    /// </summary>
-    public ScrapReasonProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ScrapReason, Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="ScrapReasonProfile" /> class.
+  /// </summary>
+  public ScrapReasonProfile()
+  {
+    CreateMap<ScrapReason, ScrapReasonReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonCreateModel, Platy.AdventureWorks.Repository.Data.Entities.ScrapReason>();
+    CreateMap<ScrapReasonCreateModel, ScrapReason>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ScrapReason, Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonCreateModel>();
+    CreateMap<ScrapReason, ScrapReasonCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.ScrapReason, Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonUpdateModel>();
+    CreateMap<ScrapReason, ScrapReasonUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.ScrapReason>();
+    CreateMap<ScrapReasonUpdateModel, ScrapReason>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonReadModel, Platy.AdventureWorks.Repository.Domain.Models.ScrapReasonUpdateModel>();
-
-    }
-
+    CreateMap<ScrapReasonReadModel, ScrapReasonUpdateModel>();
+  }
 }

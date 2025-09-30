@@ -1,69 +1,87 @@
-using System;
-using System.Collections.Generic;
-
-using Microsoft.EntityFrameworkCore;
+using Platy.AdventureWorks.Repository.Data.Entities;
 
 namespace Platy.AdventureWorks.Repository.Data.EntityConfiguration;
 
 /// <summary>
-/// Allows configuration for an entity type <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
+///   Allows configuration for an entity type <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
 /// </summary>
-internal partial class BusinessEntityConfiguration
-    : IEntityTypeConfiguration<Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity>
+internal class BusinessEntityConfiguration
+  : IEntityTypeConfiguration<BusinessEntity>
 {
-    /// <summary>
-    /// Configures the entity of type <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
-    /// </summary>
-    /// <param name="builder">The builder to be used to configure the entity type.</param>
-    public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity> builder)
-    {
-        #region Generated Configure
-        // table
-        builder.ToTable("BusinessEntity", "Person");
+  /// <summary>
+  ///   Configures the entity of type <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
+  /// </summary>
+  /// <param name="builder">The builder to be used to configure the entity type.</param>
+  public void Configure(EntityTypeBuilder<BusinessEntity> builder)
+  {
+    #region Generated Configure
 
-        // key
-        builder.HasKey(t => t.Id);
+    // table
+    builder.ToTable("BusinessEntity", "Person");
 
-        // properties
-        builder.Property(t => t.Id)
-            .IsRequired()
-            .HasColumnName("BusinessEntityID")
-            .HasColumnType("int")
-            .ValueGeneratedOnAdd();
+    // key
+    builder.HasKey(t => t.Id);
 
-        builder.Property(t => t.Rowguid)
-            .IsRequired()
-            .HasColumnName("rowguid")
-            .HasColumnType("uniqueidentifier")
-            .HasDefaultValueSql("(newid())");
+    // properties
+    builder.Property(t => t.Id)
+      .IsRequired()
+      .HasColumnName("BusinessEntityID")
+      .HasColumnType("int")
+      .ValueGeneratedOnAdd();
 
-        builder.Property(t => t.ModifiedDate)
-            .IsRequired()
-            .HasColumnName("ModifiedDate")
-            .HasColumnType("datetime")
-            .HasDefaultValueSql("(getdate())");
+    builder.Property(t => t.Rowguid)
+      .IsRequired()
+      .HasColumnName("rowguid")
+      .HasColumnType("uniqueidentifier")
+      .HasDefaultValueSql("(newid())");
 
-        // relationships
-        #endregion
-    }
+    builder.Property(t => t.ModifiedDate)
+      .IsRequired()
+      .HasColumnName("ModifiedDate")
+      .HasColumnType("datetime")
+      .HasDefaultValueSql("(getdate())");
 
-    #region Generated Constants
-    internal readonly struct Table
-    {
-        /// <summary>Table Schema name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" /></summary>
-        public const string Schema = "Person";
-        /// <summary>Table Name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" /></summary>
-        public const string Name = "BusinessEntity";
-    }
+    // relationships
 
-    internal readonly struct Columns
-    {
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.Id" /></summary>
-        public const string Id = "BusinessEntityID";
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.Rowguid" /></summary>
-        public const string Rowguid = "rowguid";
-        /// <summary>Column Name constant for property <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.ModifiedDate" /></summary>
-        public const string ModifiedDate = "ModifiedDate";
-    }
     #endregion
+  }
+
+  #region Generated Constants
+
+  internal readonly struct Table
+  {
+    /// <summary>
+    ///   Table Schema name constant for entity
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
+    /// </summary>
+    public const string Schema = "Person";
+
+    /// <summary>
+    ///   Table Name constant for entity <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity" />
+    /// </summary>
+    public const string Name = "BusinessEntity";
+  }
+
+  internal readonly struct Columns
+  {
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.Id" />
+    /// </summary>
+    public const string Id = "BusinessEntityID";
+
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.Rowguid" />
+    /// </summary>
+    public const string Rowguid = "rowguid";
+
+    /// <summary>
+    ///   Column Name constant for property
+    ///   <see cref="Platy.AdventureWorks.Repository.Data.Entities.BusinessEntity.ModifiedDate" />
+    /// </summary>
+    public const string ModifiedDate = "ModifiedDate";
+  }
+
+  #endregion
 }

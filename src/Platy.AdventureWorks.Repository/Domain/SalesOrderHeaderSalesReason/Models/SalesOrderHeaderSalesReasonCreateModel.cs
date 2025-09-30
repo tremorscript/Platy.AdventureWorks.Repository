@@ -1,39 +1,36 @@
-using System;
-using System.Collections.Generic;
-
 namespace Platy.AdventureWorks.Repository.Domain.Models;
 
 /// <summary>
-/// View Model class
+///   View Model class
 /// </summary>
-public partial class SalesOrderHeaderSalesReasonCreateModel
-    : IEntityCreateModel
+public class SalesOrderHeaderSalesReasonCreateModel
+  : IEntityCreateModel
 {
-    #region Generated Properties
-    /// <summary>
-    /// Gets or sets the property value for 'SalesOrderID'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'SalesOrderID'.
-    /// </value>
-    public int SalesOrderID { get; set; }
+  #region Generated Properties
 
-    /// <summary>
-    /// Gets or sets the property value for 'SalesReasonID'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'SalesReasonID'.
-    /// </value>
-    public int SalesReasonID { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'SalesOrderId'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'SalesOrderId'.
+  /// </value>
+  public int SalesOrderId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the property value for 'ModifiedDate'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'ModifiedDate'.
-    /// </value>
-    public DateTime ModifiedDate { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'SalesReasonId'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'SalesReasonId'.
+  /// </value>
+  public int SalesReasonId { get; set; }
 
-    #endregion
+  /// <summary>
+  ///   Gets or sets the property value for 'ModifiedDate'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'ModifiedDate'.
+  /// </value>
+  public DateTime ModifiedDate { get; set; }
 
+  #endregion
 }

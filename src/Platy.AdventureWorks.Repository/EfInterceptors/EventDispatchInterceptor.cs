@@ -4,7 +4,7 @@ using Platy.AdventureWorks.Repository.Data;
 namespace Platy.AdventureWorks.Repository.EfInterceptors;
 
 /// <summary>
-/// Intercepts SaveChanges to dispatch domain events after changes are successfully saved.
+///   Intercepts SaveChanges to dispatch domain events after changes are successfully saved.
 /// </summary>
 /// <param name="domainEventDispatcher"></param>
 [RegisterScoped]

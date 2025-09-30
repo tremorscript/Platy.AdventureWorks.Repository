@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="StateProvince"/> .
+///   Mapper class for entity <see cref="StateProvince" /> .
 /// </summary>
-public partial class StateProvinceProfile
-    : Profile
+public class StateProvinceProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="StateProvinceProfile"/> class.
-    /// </summary>
-    public StateProvinceProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.StateProvince, Platy.AdventureWorks.Repository.Domain.Models.StateProvinceReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="StateProvinceProfile" /> class.
+  /// </summary>
+  public StateProvinceProfile()
+  {
+    CreateMap<StateProvince, StateProvinceReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StateProvinceCreateModel, Platy.AdventureWorks.Repository.Data.Entities.StateProvince>();
+    CreateMap<StateProvinceCreateModel, StateProvince>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.StateProvince, Platy.AdventureWorks.Repository.Domain.Models.StateProvinceCreateModel>();
+    CreateMap<StateProvince, StateProvinceCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.StateProvince, Platy.AdventureWorks.Repository.Domain.Models.StateProvinceUpdateModel>();
+    CreateMap<StateProvince, StateProvinceUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StateProvinceUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.StateProvince>();
+    CreateMap<StateProvinceUpdateModel, StateProvince>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.StateProvinceReadModel, Platy.AdventureWorks.Repository.Domain.Models.StateProvinceUpdateModel>();
-
-    }
-
+    CreateMap<StateProvinceReadModel, StateProvinceUpdateModel>();
+  }
 }

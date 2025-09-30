@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="UnitMeasure"/> .
+///   Mapper class for entity <see cref="UnitMeasure" /> .
 /// </summary>
-public partial class UnitMeasureProfile
-    : Profile
+public class UnitMeasureProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="UnitMeasureProfile"/> class.
-    /// </summary>
-    public UnitMeasureProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.UnitMeasure, Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="UnitMeasureProfile" /> class.
+  /// </summary>
+  public UnitMeasureProfile()
+  {
+    CreateMap<UnitMeasure, UnitMeasureReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureCreateModel, Platy.AdventureWorks.Repository.Data.Entities.UnitMeasure>();
+    CreateMap<UnitMeasureCreateModel, UnitMeasure>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.UnitMeasure, Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureCreateModel>();
+    CreateMap<UnitMeasure, UnitMeasureCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.UnitMeasure, Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureUpdateModel>();
+    CreateMap<UnitMeasure, UnitMeasureUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.UnitMeasure>();
+    CreateMap<UnitMeasureUpdateModel, UnitMeasure>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureReadModel, Platy.AdventureWorks.Repository.Domain.Models.UnitMeasureUpdateModel>();
-
-    }
-
+    CreateMap<UnitMeasureReadModel, UnitMeasureUpdateModel>();
+  }
 }

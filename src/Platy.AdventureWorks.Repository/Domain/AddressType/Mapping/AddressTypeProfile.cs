@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="AddressType"/> .
+///   Mapper class for entity <see cref="AddressType" /> .
 /// </summary>
-public partial class AddressTypeProfile
-    : Profile
+public class AddressTypeProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AddressTypeProfile"/> class.
-    /// </summary>
-    public AddressTypeProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.AddressType, Platy.AdventureWorks.Repository.Domain.Models.AddressTypeReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="AddressTypeProfile" /> class.
+  /// </summary>
+  public AddressTypeProfile()
+  {
+    CreateMap<AddressType, AddressTypeReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressTypeCreateModel, Platy.AdventureWorks.Repository.Data.Entities.AddressType>();
+    CreateMap<AddressTypeCreateModel, AddressType>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.AddressType, Platy.AdventureWorks.Repository.Domain.Models.AddressTypeCreateModel>();
+    CreateMap<AddressType, AddressTypeCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.AddressType, Platy.AdventureWorks.Repository.Domain.Models.AddressTypeUpdateModel>();
+    CreateMap<AddressType, AddressTypeUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressTypeUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.AddressType>();
+    CreateMap<AddressTypeUpdateModel, AddressType>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.AddressTypeReadModel, Platy.AdventureWorks.Repository.Domain.Models.AddressTypeUpdateModel>();
-
-    }
-
+    CreateMap<AddressTypeReadModel, AddressTypeUpdateModel>();
+  }
 }

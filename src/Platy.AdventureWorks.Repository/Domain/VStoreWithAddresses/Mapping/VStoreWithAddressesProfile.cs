@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="VStoreWithAddresses"/> .
+///   Mapper class for entity <see cref="VStoreWithAddresses" /> .
 /// </summary>
-public partial class VStoreWithAddressesProfile
-    : Profile
+public class VStoreWithAddressesProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VStoreWithAddressesProfile"/> class.
-    /// </summary>
-    public VStoreWithAddressesProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithAddresses, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VStoreWithAddressesProfile" /> class.
+  /// </summary>
+  public VStoreWithAddressesProfile()
+  {
+    CreateMap<VStoreWithAddresses, VStoreWithAddressesReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesCreateModel, Platy.AdventureWorks.Repository.Data.Entities.VStoreWithAddresses>();
+    CreateMap<VStoreWithAddressesCreateModel, VStoreWithAddresses>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithAddresses, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesCreateModel>();
+    CreateMap<VStoreWithAddresses, VStoreWithAddressesCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VStoreWithAddresses, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesUpdateModel>();
+    CreateMap<VStoreWithAddresses, VStoreWithAddressesUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.VStoreWithAddresses>();
+    CreateMap<VStoreWithAddressesUpdateModel, VStoreWithAddresses>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesReadModel, Platy.AdventureWorks.Repository.Domain.Models.VStoreWithAddressesUpdateModel>();
-
-    }
-
+    CreateMap<VStoreWithAddressesReadModel, VStoreWithAddressesUpdateModel>();
+  }
 }

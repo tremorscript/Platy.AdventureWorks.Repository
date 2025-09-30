@@ -1,81 +1,92 @@
-using System;
-using System.Collections.Generic;
-
+using Ardalis.Result;
+using FluentValidation;
+using MediatR;
 using Platy.AdventureWorks.Repository.BaseRepository;
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 using Platy.AdventureWorks.Repository.Events;
-using FluentValidation;
-using Ardalis.Result;
-using Ardalis.Result.FluentValidation;
-using MediatR;
+
 namespace Platy.AdventureWorks.Repository;
 
 /// <summary>
-/// Repository class representing data for table 'EmailAddress'.
+///   Repository class representing data for table 'EmailAddress'.
 /// </summary>
 public class EmailAddressRepository
-    : EntityRepository<EmailAddressReadModel, EmailAddressCreateModel, EmailAddressUpdateModel>
+  : EntityRepository<EmailAddress, int, EmailAddressReadModel, EmailAddressCreateModel, EmailAddressUpdateModel>,
+    IEmailAddressRepository
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EmailAddressRepository"/> class.
-    /// </summary>
-    public EmailAddressRepository(IServiceProvider serviceProvider,
-        IMapper mapper,
-        IMediator mediator,
-        ILogger<EmailAddressRepository> logger,
-        IValidator<EmailAddressCreateModel> createValidator,
-        IValidator<EmailAddressUpdateModel> updateValidator)
-        : base(serviceProvider, mapper, logger, mediator, createValidator, updateValidator)
-    {
-        #region Generated Constructor
-        #endregion
-    }
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="EmailAddressRepository" /> class.
+  /// </summary>
+  public EmailAddressRepository(IServiceProvider serviceProvider,
+    IMapper mapper,
+    IMediator mediator,
+    ILogger<EmailAddressRepository> logger,
+    IValidator<EmailAddressCreateModel> createValidator,
+    IValidator<EmailAddressUpdateModel> updateValidator)
+    : base(serviceProvider, mapper, logger, mediator, createValidator, updateValidator)
+  {
+  }
 
-    #region Generated methods
+  #region Generated methods
 
-    /// <summary>
-    /// Gets an <see cref="EmailAddressReadModel" />.
-    /// </summary>
-    public async Task<Result<EmailAddressReadModel>> GetAsync(int id,
-      CancellationToken cancellationToken) =>
-      await ReadModel<EmailAddress, int>(id,
-        cancellationToken);
+  /// <summary>
+  ///   Gets an <see cref="EmailAddressReadModel" />.
+  /// </summary>
+  public async Task<Result<EmailAddressReadModel>> GetAsync(int id,
+    CancellationToken cancellationToken)
+  {
+    return await ReadModel<EmailAddress, int>(id,
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Returns a list of <see cref="EmailAddressReadModel" />.
-    /// </summary>
-    public async Task<Result<IReadOnlyList<EmailAddressReadModel>>> List(CancellationToken cancellationToken) =>
-       await QueryModel<EmailAddress,int>(null, cancellationToken);
+  /// <summary>
+  ///   Returns a list of <see cref="EmailAddressReadModel" />.
+  /// </summary>
+  public async Task<Result<IReadOnlyList<EmailAddressReadModel>>> List(CancellationToken cancellationToken)
+  {
+    return await QueryModel<EmailAddress, int>(null, cancellationToken);
+  }
 
-    /// <summary>
-    /// Creates an <see cref="EmailAddress" />.
-    /// </summary>
-     public async Task<Result<EmailAddressReadModel>> CreateAsync(EmailAddressCreateModel createModel,
-       CancellationToken cancellationToken) =>
-       await CreateModel<EmailAddress, EmailAddressCreatedEvent, int>(createModel,
-         new EmailAddressCreatedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Creates an <see cref="EmailAddress" />.
+  /// </summary>
+  public async Task<Result<EmailAddressReadModel>> CreateAsync(EmailAddressCreateModel createModel,
+    CancellationToken cancellationToken)
+  {
+    return await CreateModel(createModel,
+      new EmailAddressCreatedEvent(),
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Updates a <see cref="EmailAddress" />.
-    /// </summary>
-     public async Task<Result<EmailAddressReadModel>> Update(int id,
-       EmailAddressUpdateModel updateModel,
-       CancellationToken cancellationToken) =>
-       await UpdateModel<EmailAddress, EmailAddressUpdatedEvent, int>(id,
-         updateModel,
-         new EmailAddressUpdatedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Updates a <see cref="EmailAddress" />.
+  /// </summary>
+  public async Task<Result<EmailAddressReadModel>> Update(int id,
+    EmailAddressUpdateModel updateModel,
+    CancellationToken cancellationToken)
+  {
+    return await UpdateModel(id,
+      updateModel,
+      new EmailAddressUpdatedEvent(),
+      cancellationToken);
+  }
 
-    /// <summary>
-    /// Deletes a <see cref="EmailAddress" />.
-    /// </summary>
-      public virtual async Task<Result<EmailAddressReadModel>> Delete(int id,
-       CancellationToken cancellationToken) =>
-       await DeleteModel<EmailAddress, EmailAddressDeletedEvent, int>(id,
-         new EmailAddressDeletedEvent(),
-         cancellationToken);
+  /// <summary>
+  ///   Deletes a <see cref="EmailAddress" />.
+  /// </summary>
+  public virtual async Task<Result<EmailAddressReadModel>> Delete(int id,
+    CancellationToken cancellationToken)
+  {
+    return await DeleteModel(id,
+      new EmailAddressDeletedEvent(),
+      cancellationToken);
+  }
 
-    #endregion
+  #endregion
+}
+
+public interface IEmailAddressRepository
+  : IRepository<EmailAddress, int, EmailAddressReadModel, EmailAddressCreateModel, EmailAddressUpdateModel>
+{
 }

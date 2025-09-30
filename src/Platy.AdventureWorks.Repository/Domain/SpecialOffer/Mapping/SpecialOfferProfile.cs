@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="SpecialOffer"/> .
+///   Mapper class for entity <see cref="SpecialOffer" /> .
 /// </summary>
-public partial class SpecialOfferProfile
-    : Profile
+public class SpecialOfferProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SpecialOfferProfile"/> class.
-    /// </summary>
-    public SpecialOfferProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SpecialOffer, Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="SpecialOfferProfile" /> class.
+  /// </summary>
+  public SpecialOfferProfile()
+  {
+    CreateMap<SpecialOffer, SpecialOfferReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferCreateModel, Platy.AdventureWorks.Repository.Data.Entities.SpecialOffer>();
+    CreateMap<SpecialOfferCreateModel, SpecialOffer>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SpecialOffer, Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferCreateModel>();
+    CreateMap<SpecialOffer, SpecialOfferCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.SpecialOffer, Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferUpdateModel>();
+    CreateMap<SpecialOffer, SpecialOfferUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.SpecialOffer>();
+    CreateMap<SpecialOfferUpdateModel, SpecialOffer>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferReadModel, Platy.AdventureWorks.Repository.Domain.Models.SpecialOfferUpdateModel>();
-
-    }
-
+    CreateMap<SpecialOfferReadModel, SpecialOfferUpdateModel>();
+  }
 }

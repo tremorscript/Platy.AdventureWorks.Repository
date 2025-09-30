@@ -1,55 +1,52 @@
-using System;
-using System.Collections.Generic;
-
 namespace Platy.AdventureWorks.Repository.Domain.Models;
 
 /// <summary>
-/// View Model class
+///   View Model class
 /// </summary>
-public partial class BusinessEntityAddressCreateModel
-    : IEntityCreateModel
+public class BusinessEntityAddressCreateModel
+  : IEntityCreateModel
 {
-    #region Generated Properties
-    /// <summary>
-    /// Gets or sets the property value for 'BusinessEntityID'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'BusinessEntityID'.
-    /// </value>
-    public int BusinessEntityID { get; set; }
+  #region Generated Properties
 
-    /// <summary>
-    /// Gets or sets the property value for 'AddressID'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'AddressID'.
-    /// </value>
-    public int AddressID { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'BusinessEntityId'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'BusinessEntityId'.
+  /// </value>
+  public int BusinessEntityId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the property value for 'AddressTypeID'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'AddressTypeID'.
-    /// </value>
-    public int AddressTypeID { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'AddressId'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'AddressId'.
+  /// </value>
+  public int AddressId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the property value for 'Rowguid'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'Rowguid'.
-    /// </value>
-    public Guid Rowguid { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'AddressTypeId'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'AddressTypeId'.
+  /// </value>
+  public int AddressTypeId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the property value for 'ModifiedDate'.
-    /// </summary>
-    /// <value>
-    /// The property value for 'ModifiedDate'.
-    /// </value>
-    public DateTime ModifiedDate { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value for 'Rowguid'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'Rowguid'.
+  /// </value>
+  public Guid Rowguid { get; set; }
 
-    #endregion
+  /// <summary>
+  ///   Gets or sets the property value for 'ModifiedDate'.
+  /// </summary>
+  /// <value>
+  ///   The property value for 'ModifiedDate'.
+  /// </value>
+  public DateTime ModifiedDate { get; set; }
 
+  #endregion
 }

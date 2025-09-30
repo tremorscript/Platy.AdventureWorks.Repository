@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="VProductModelCatalogDescription"/> .
+///   Mapper class for entity <see cref="VProductModelCatalogDescription" /> .
 /// </summary>
-public partial class VProductModelCatalogDescriptionProfile
-    : Profile
+public class VProductModelCatalogDescriptionProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VProductModelCatalogDescriptionProfile"/> class.
-    /// </summary>
-    public VProductModelCatalogDescriptionProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VProductModelCatalogDescription, Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VProductModelCatalogDescriptionProfile" /> class.
+  /// </summary>
+  public VProductModelCatalogDescriptionProfile()
+  {
+    CreateMap<VProductModelCatalogDescription, VProductModelCatalogDescriptionReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionCreateModel, Platy.AdventureWorks.Repository.Data.Entities.VProductModelCatalogDescription>();
+    CreateMap<VProductModelCatalogDescriptionCreateModel, VProductModelCatalogDescription>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VProductModelCatalogDescription, Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionCreateModel>();
+    CreateMap<VProductModelCatalogDescription, VProductModelCatalogDescriptionCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VProductModelCatalogDescription, Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionUpdateModel>();
+    CreateMap<VProductModelCatalogDescription, VProductModelCatalogDescriptionUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.VProductModelCatalogDescription>();
+    CreateMap<VProductModelCatalogDescriptionUpdateModel, VProductModelCatalogDescription>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionReadModel, Platy.AdventureWorks.Repository.Domain.Models.VProductModelCatalogDescriptionUpdateModel>();
-
-    }
-
+    CreateMap<VProductModelCatalogDescriptionReadModel, VProductModelCatalogDescriptionUpdateModel>();
+  }
 }

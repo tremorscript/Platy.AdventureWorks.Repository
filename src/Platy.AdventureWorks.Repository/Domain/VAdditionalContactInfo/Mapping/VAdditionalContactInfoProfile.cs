@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="VAdditionalContactInfo"/> .
+///   Mapper class for entity <see cref="VAdditionalContactInfo" /> .
 /// </summary>
-public partial class VAdditionalContactInfoProfile
-    : Profile
+public class VAdditionalContactInfoProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VAdditionalContactInfoProfile"/> class.
-    /// </summary>
-    public VAdditionalContactInfoProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VAdditionalContactInfo, Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VAdditionalContactInfoProfile" /> class.
+  /// </summary>
+  public VAdditionalContactInfoProfile()
+  {
+    CreateMap<VAdditionalContactInfo, VAdditionalContactInfoReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoCreateModel, Platy.AdventureWorks.Repository.Data.Entities.VAdditionalContactInfo>();
+    CreateMap<VAdditionalContactInfoCreateModel, VAdditionalContactInfo>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VAdditionalContactInfo, Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoCreateModel>();
+    CreateMap<VAdditionalContactInfo, VAdditionalContactInfoCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VAdditionalContactInfo, Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoUpdateModel>();
+    CreateMap<VAdditionalContactInfo, VAdditionalContactInfoUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.VAdditionalContactInfo>();
+    CreateMap<VAdditionalContactInfoUpdateModel, VAdditionalContactInfo>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoReadModel, Platy.AdventureWorks.Repository.Domain.Models.VAdditionalContactInfoUpdateModel>();
-
-    }
-
+    CreateMap<VAdditionalContactInfoReadModel, VAdditionalContactInfoUpdateModel>();
+  }
 }

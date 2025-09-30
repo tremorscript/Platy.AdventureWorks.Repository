@@ -1,35 +1,29 @@
-using System;
-
-using AutoMapper;
-
 using Platy.AdventureWorks.Repository.Data.Entities;
 using Platy.AdventureWorks.Repository.Domain.Models;
 
 namespace Platy.AdventureWorks.Repository.Domain.Mapping;
 
 /// <summary>
-/// Mapper class for entity <see cref="VSalesPerson"/> .
+///   Mapper class for entity <see cref="VSalesPerson" /> .
 /// </summary>
-public partial class VSalesPersonProfile
-    : Profile
+public class VSalesPersonProfile
+  : Profile
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VSalesPersonProfile"/> class.
-    /// </summary>
-    public VSalesPersonProfile()
-    {
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VSalesPerson, Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonReadModel>();
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="VSalesPersonProfile" /> class.
+  /// </summary>
+  public VSalesPersonProfile()
+  {
+    CreateMap<VSalesPerson, VSalesPersonReadModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonCreateModel, Platy.AdventureWorks.Repository.Data.Entities.VSalesPerson>();
+    CreateMap<VSalesPersonCreateModel, VSalesPerson>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VSalesPerson, Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonCreateModel>();
+    CreateMap<VSalesPerson, VSalesPersonCreateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Data.Entities.VSalesPerson, Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonUpdateModel>();
+    CreateMap<VSalesPerson, VSalesPersonUpdateModel>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonUpdateModel, Platy.AdventureWorks.Repository.Data.Entities.VSalesPerson>();
+    CreateMap<VSalesPersonUpdateModel, VSalesPerson>();
 
-        CreateMap<Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonReadModel, Platy.AdventureWorks.Repository.Domain.Models.VSalesPersonUpdateModel>();
-
-    }
-
+    CreateMap<VSalesPersonReadModel, VSalesPersonUpdateModel>();
+  }
 }

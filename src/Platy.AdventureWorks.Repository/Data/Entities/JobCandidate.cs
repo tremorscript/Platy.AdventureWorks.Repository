@@ -1,75 +1,74 @@
-using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Platy.AdventureWorks.Repository.Data.Entities;
 
 /// <summary>
-/// Entity class representing data for table 'JobCandidate'.
+///   Entity class representing data for table 'JobCandidate'.
 /// </summary>
-[System.ComponentModel.DataAnnotations.Schema.Table("JobCandidate", Schema = "HumanResources")]
-internal partial class JobCandidate
-    : EntityBase<int>
+[Table("JobCandidate", Schema = "HumanResources")]
+public class JobCandidate
+  : EntityBase<int>
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="JobCandidate"/> class.
-    /// </summary>
-    public JobCandidate()
-    {
-        #region Generated Constructor
-        #endregion
-    }
+  /// <summary>
+  ///   Initializes a new instance of the <see cref="JobCandidate" /> class.
+  /// </summary>
+  public JobCandidate()
+  {
+  }
 
-    #region Generated Properties
-    /// <summary>
-    /// Gets or sets the property value representing column 'JobCandidateID'.
-    /// </summary>
-    /// <value>
-    /// The property value representing column 'JobCandidateID'.
-    /// </value>
-    [System.ComponentModel.DataAnnotations.Key()]
-    [System.ComponentModel.DataAnnotations.Schema.Column("JobCandidateID", TypeName = "int")]
-    [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+  #region Generated Relationships
 
-    /// <summary>
-    /// Gets or sets the property value representing column 'BusinessEntityID'.
-    /// </summary>
-    /// <value>
-    /// The property value representing column 'BusinessEntityID'.
-    /// </value>
-    [System.ComponentModel.DataAnnotations.Schema.Column("BusinessEntityID", TypeName = "int")]
-    public int? BusinessEntityId { get; set; }
+  /// <summary>
+  ///   Gets or sets the navigation property for entity <see cref="Employee" />.
+  /// </summary>
+  /// <value>
+  ///   The navigation property for entity <see cref="Employee" />.
+  /// </value>
+  /// <seealso cref="BusinessEntityId" />
+  public virtual Employee? Employee { get; set; }
 
-    /// <summary>
-    /// Gets or sets the property value representing column 'Resume'.
-    /// </summary>
-    /// <value>
-    /// The property value representing column 'Resume'.
-    /// </value>
-    [System.ComponentModel.DataAnnotations.Schema.Column("Resume", TypeName = "xml")]
-    public string? Resume { get; set; }
+  #endregion
 
-    /// <summary>
-    /// Gets or sets the property value representing column 'ModifiedDate'.
-    /// </summary>
-    /// <value>
-    /// The property value representing column 'ModifiedDate'.
-    /// </value>
-    [System.ComponentModel.DataAnnotations.Schema.Column("ModifiedDate", TypeName = "datetime")]
-    public DateTime ModifiedDate { get; set; }
+  #region Generated Properties
 
-    #endregion
+  /// <summary>
+  ///   Gets or sets the property value representing column 'JobCandidateID'.
+  /// </summary>
+  /// <value>
+  ///   The property value representing column 'JobCandidateID'.
+  /// </value>
+  [Key]
+  [Column("JobCandidateID", TypeName = "int")]
+  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+  public int Id { get; set; }
 
-    #region Generated Relationships
-    /// <summary>
-    /// Gets or sets the navigation property for entity <see cref="Employee" />.
-    /// </summary>
-    /// <value>
-    /// The navigation property for entity <see cref="Employee" />.
-    /// </value>
-    /// <seealso cref="BusinessEntityId" />
-    public virtual Employee? Employee { get; set; }
+  /// <summary>
+  ///   Gets or sets the property value representing column 'BusinessEntityID'.
+  /// </summary>
+  /// <value>
+  ///   The property value representing column 'BusinessEntityID'.
+  /// </value>
+  [Column("BusinessEntityID", TypeName = "int")]
+  public int? BusinessEntityId { get; set; }
 
-    #endregion
+  /// <summary>
+  ///   Gets or sets the property value representing column 'Resume'.
+  /// </summary>
+  /// <value>
+  ///   The property value representing column 'Resume'.
+  /// </value>
+  [Column("Resume", TypeName = "xml")]
+  public string? Resume { get; set; }
 
+  /// <summary>
+  ///   Gets or sets the property value representing column 'ModifiedDate'.
+  /// </summary>
+  /// <value>
+  ///   The property value representing column 'ModifiedDate'.
+  /// </value>
+  [Column("ModifiedDate", TypeName = "datetime")]
+  public DateTime ModifiedDate { get; set; }
+
+  #endregion
 }
