@@ -78,6 +78,7 @@ private void GenerateClass()
         CodeBuilder.AppendLine($"/// Repository class representing data for table '{Entity.TableName}'.");
         CodeBuilder.AppendLine("/// </summary>");
     }
+    CodeBuilder.AppendLine($"[RegisterScoped]");
     CodeBuilder.AppendLine($"public class {entityClass}Repository");
 
     using (CodeBuilder.Indent())

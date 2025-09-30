@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'AddressType'.
 /// </summary>
+[RegisterScoped]
 public class AddressTypeRepository
   : EntityRepository<AddressType, int, AddressTypeReadModel, AddressTypeCreateModel, AddressTypeUpdateModel>,
     IAddressTypeRepository

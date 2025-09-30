@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'CurrencyRate'.
 /// </summary>
+[RegisterScoped]
 public class CurrencyRateRepository
   : EntityRepository<CurrencyRate, int, CurrencyRateReadModel, CurrencyRateCreateModel, CurrencyRateUpdateModel>,
     ICurrencyRateRepository

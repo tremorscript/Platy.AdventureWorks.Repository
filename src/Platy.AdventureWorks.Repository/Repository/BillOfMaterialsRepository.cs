@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'BillOfMaterials'.
 /// </summary>
+[RegisterScoped]
 public class BillOfMaterialsRepository
   : EntityRepository<BillOfMaterials, int, BillOfMaterialsReadModel, BillOfMaterialsCreateModel,
     BillOfMaterialsUpdateModel>, IBillOfMaterialsRepository

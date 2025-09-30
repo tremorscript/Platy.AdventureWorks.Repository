@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'WorkOrder'.
 /// </summary>
+[RegisterScoped]
 public class WorkOrderRepository
   : EntityRepository<WorkOrder, int, WorkOrderReadModel, WorkOrderCreateModel, WorkOrderUpdateModel>,
     IWorkOrderRepository

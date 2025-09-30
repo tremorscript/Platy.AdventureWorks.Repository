@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'ShoppingCartItem'.
 /// </summary>
+[RegisterScoped]
 public class ShoppingCartItemRepository
   : EntityRepository<ShoppingCartItem, int, ShoppingCartItemReadModel, ShoppingCartItemCreateModel,
     ShoppingCartItemUpdateModel>, IShoppingCartItemRepository

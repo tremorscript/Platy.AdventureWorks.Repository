@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'SalesOrderHeader'.
 /// </summary>
+[RegisterScoped]
 public class SalesOrderHeaderRepository
   : EntityRepository<SalesOrderHeader, int, SalesOrderHeaderReadModel, SalesOrderHeaderCreateModel,
     SalesOrderHeaderUpdateModel>, ISalesOrderHeaderRepository

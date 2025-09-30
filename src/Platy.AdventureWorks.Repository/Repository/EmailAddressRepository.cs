@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'EmailAddress'.
 /// </summary>
+[RegisterScoped]
 public class EmailAddressRepository
   : EntityRepository<EmailAddress, int, EmailAddressReadModel, EmailAddressCreateModel, EmailAddressUpdateModel>,
     IEmailAddressRepository

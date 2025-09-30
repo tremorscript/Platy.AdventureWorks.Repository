@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'ScrapReason'.
 /// </summary>
+[RegisterScoped]
 public class ScrapReasonRepository
   : EntityRepository<ScrapReason, short, ScrapReasonReadModel, ScrapReasonCreateModel, ScrapReasonUpdateModel>,
     IScrapReasonRepository

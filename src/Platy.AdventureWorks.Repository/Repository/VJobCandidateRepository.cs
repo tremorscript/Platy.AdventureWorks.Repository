@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'vJobCandidate'.
 /// </summary>
+[RegisterScoped]
 public class VJobCandidateRepository
   : EntityRepository<VJobCandidate, int, VJobCandidateReadModel, VJobCandidateCreateModel, VJobCandidateUpdateModel>,
     IVJobCandidateRepository

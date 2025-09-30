@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'PhoneNumberType'.
 /// </summary>
+[RegisterScoped]
 public class PhoneNumberTypeRepository
   : EntityRepository<PhoneNumberType, int, PhoneNumberTypeReadModel, PhoneNumberTypeCreateModel,
     PhoneNumberTypeUpdateModel>, IPhoneNumberTypeRepository

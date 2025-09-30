@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'ProductModel'.
 /// </summary>
+[RegisterScoped]
 public class ProductModelRepository
   : EntityRepository<ProductModel, int, ProductModelReadModel, ProductModelCreateModel, ProductModelUpdateModel>,
     IProductModelRepository

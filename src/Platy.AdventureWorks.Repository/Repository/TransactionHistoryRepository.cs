@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'TransactionHistory'.
 /// </summary>
+[RegisterScoped]
 public class TransactionHistoryRepository
   : EntityRepository<TransactionHistory, int, TransactionHistoryReadModel, TransactionHistoryCreateModel,
     TransactionHistoryUpdateModel>, ITransactionHistoryRepository

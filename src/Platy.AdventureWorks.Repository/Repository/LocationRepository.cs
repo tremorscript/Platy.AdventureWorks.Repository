@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'Location'.
 /// </summary>
+[RegisterScoped]
 public class LocationRepository
   : EntityRepository<Location, short, LocationReadModel, LocationCreateModel, LocationUpdateModel>, ILocationRepository
 {

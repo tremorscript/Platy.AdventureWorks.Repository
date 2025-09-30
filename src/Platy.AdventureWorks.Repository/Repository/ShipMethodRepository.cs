@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'ShipMethod'.
 /// </summary>
+[RegisterScoped]
 public class ShipMethodRepository
   : EntityRepository<ShipMethod, int, ShipMethodReadModel, ShipMethodCreateModel, ShipMethodUpdateModel>,
     IShipMethodRepository

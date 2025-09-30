@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'SpecialOffer'.
 /// </summary>
+[RegisterScoped]
 public class SpecialOfferRepository
   : EntityRepository<SpecialOffer, int, SpecialOfferReadModel, SpecialOfferCreateModel, SpecialOfferUpdateModel>,
     ISpecialOfferRepository

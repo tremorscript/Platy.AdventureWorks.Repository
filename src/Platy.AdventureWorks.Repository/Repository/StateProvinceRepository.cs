@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'StateProvince'.
 /// </summary>
+[RegisterScoped]
 public class StateProvinceRepository
   : EntityRepository<StateProvince, int, StateProvinceReadModel, StateProvinceCreateModel, StateProvinceUpdateModel>,
     IStateProvinceRepository

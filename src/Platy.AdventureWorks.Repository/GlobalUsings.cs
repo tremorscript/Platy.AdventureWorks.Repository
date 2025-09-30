@@ -9,3 +9,4 @@ global using AutoMapper;
 global using NetTopologySuite;
 global using Injectio.Attributes;
 global using Platy.Shared;
+global using Injectio;

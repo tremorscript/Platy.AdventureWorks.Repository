@@ -11,6 +11,7 @@ namespace Platy.AdventureWorks.Repository;
 /// <summary>
 ///   Repository class representing data for table 'Shift'.
 /// </summary>
+[RegisterScoped]
 public class ShiftRepository
   : EntityRepository<Shift, byte, ShiftReadModel, ShiftCreateModel, ShiftUpdateModel>, IShiftRepository
 {
