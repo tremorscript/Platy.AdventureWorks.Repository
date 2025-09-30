@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
-    paths: ["src/**", "tests/**"]
+    paths: [ "src/**", "tests/**" ]
   pull_request:
     branches: [ "main" ]
-    paths: ["src/**", "tests/**"]
+    paths: [ "src/**", "tests/**" ]
 
 jobs:
   build:
@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build Platy.AdventureWorks.Repository.sln --configuration Release
-    - name: Test
-      run: dotnet test Platy.AdventureWorks.Repository.sln --configuration Release --no-build --no-restore
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build Platy.AdventureWorks.Repository.sln --configuration Release
+      - name: Test
+        run: dotnet test Platy.AdventureWorks.Repository.sln --configuration Release --no-build --no-restore
