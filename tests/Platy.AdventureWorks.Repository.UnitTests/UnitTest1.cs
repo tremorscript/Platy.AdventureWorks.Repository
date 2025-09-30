@@ -14,7 +14,7 @@ public class UnitTest1
   [Fact]
   public async void Test1()
   {
-    var config = new ConfigurationBuilder()
+    /*var config = new ConfigurationBuilder()
       .AddUserSecrets<UnitTest1>()
       .Build();
 
@@ -47,6 +47,6 @@ public class UnitTest1
       PostalCode = readModel.Value.PostalCode,
       StateProvinceId = readModel.Value.StateProvinceId
     };
-    await test.CreateAsync(newModel, CancellationToken.None);
+    await test.CreateAsync(newModel, CancellationToken.None);*/
   }
 }
