@@ -22,8 +22,7 @@ public string WriteCode()
 
     CodeBuilder.AppendLine("using System;");
     CodeBuilder.AppendLine("using System.Collections.Generic;");
-    CodeBuilder.AppendLine();
-
+    CodeBuilder.AppendLine("using System.Linq.Expressions;");
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.BaseRepository;");
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.Data.Entities;");
     CodeBuilder.AppendLine("using Platy.AdventureWorks.Repository.Domain.Models;");
@@ -32,9 +31,11 @@ public string WriteCode()
     CodeBuilder.AppendLine("using FluentValidation;");
     CodeBuilder.AppendLine("using Ardalis.Result;");
     CodeBuilder.AppendLine("using Ardalis.Result.FluentValidation;");
-
     CodeBuilder.AppendLine("using MediatR;");
 
+    CodeBuilder.AppendLine();
+    CodeBuilder.AppendLine();
+    
     CodeBuilder.Append($"namespace {TemplateOptions.Namespace}");
 
     if (GeneratorOptions.Project.FileScopedNamespace)
@@ -171,8 +172,10 @@ private void GenerateAsyncMethods()
         CodeBuilder.AppendLine($"/// Returns a list of <see cref=\"{entityClass}ReadModel\" />.");
         CodeBuilder.AppendLine("/// </summary>");
     }
-    CodeBuilder.AppendLine($"public async Task<Result<IReadOnlyList<{entityClass}ReadModel>>> List(CancellationToken cancellationToken) =>");
-    CodeBuilder.AppendLine($"   await QueryModel<{entityClass},{identityPropertyType}>(null, cancellationToken);");
+    CodeBuilder.AppendLine($"public async Task<Result<IReadOnlyList<{entityClass}ReadModel>>> ListAsync(");
+    CodeBuilder.AppendLine($"   Expression<Func<{entityClass}, bool>>? predicate,");
+    CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
+    CodeBuilder.AppendLine($"   await QueryModel<{entityClass},{identityPropertyType}>(predicate, cancellationToken);");
     
     CodeBuilder.AppendLine("");
     if (GeneratorOptions.Data.Entity.Document)
@@ -181,7 +184,8 @@ private void GenerateAsyncMethods()
         CodeBuilder.AppendLine($"/// Creates an <see cref=\"{entityClass}\" />.");
         CodeBuilder.AppendLine("/// </summary>");
     }
-    CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> CreateAsync({entityClass}CreateModel createModel,");
+    CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> CreateAsync(");
+    CodeBuilder.AppendLine($"   {entityClass}CreateModel createModel,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
     CodeBuilder.AppendLine($"   await CreateModel(createModel,");
     CodeBuilder.AppendLine($"     new {entityClass}CreatedEvent(),");
@@ -194,7 +198,8 @@ private void GenerateAsyncMethods()
         CodeBuilder.AppendLine($"/// Updates a <see cref=\"{entityClass}\" />.");
         CodeBuilder.AppendLine("/// </summary>");
     }
-    CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> Update({identityPropertyType} id,");
+    CodeBuilder.AppendLine($" public async Task<Result<{entityClass}ReadModel>> UpdateAsync(");
+    CodeBuilder.AppendLine($"   {identityPropertyType} id,");
     CodeBuilder.AppendLine($"   {entityClass}UpdateModel updateModel,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
     CodeBuilder.AppendLine($"   await UpdateModel(id,");
@@ -209,7 +214,8 @@ private void GenerateAsyncMethods()
         CodeBuilder.AppendLine($"/// Deletes a <see cref=\"{entityClass}\" />.");
         CodeBuilder.AppendLine("/// </summary>");
     }
-    CodeBuilder.AppendLine($"  public virtual async Task<Result<{entityClass}ReadModel>> Delete({identityPropertyType} id,");
+    CodeBuilder.AppendLine($"  public virtual async Task<Result<{entityClass}ReadModel>> DeleteAsync(");
+    CodeBuilder.AppendLine($"   {identityPropertyType} id,");
     CodeBuilder.AppendLine($"   CancellationToken cancellationToken) =>");
     CodeBuilder.AppendLine($"   await DeleteModel(id,");
     CodeBuilder.AppendLine($"     new {entityClass}DeletedEvent(),");
