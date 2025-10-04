@@ -20,6 +20,8 @@ jobs:
       - name: Build
         run: dotnet build Platy.AdventureWorks.Repository.sln --configuration Release
       - name: Test
+        env:
+          ADVENTUREWORKSDB: ${{ secrets.ADVENTUREWORKSDB }}
         run: dotnet test Platy.AdventureWorks.Repository.sln --configuration Release --no-build --no-restore
       - name: Pack
         run: dotnet pack Platy.AdventureWorks.Repository.sln --configuration Release --no-build --no-restore --output .
