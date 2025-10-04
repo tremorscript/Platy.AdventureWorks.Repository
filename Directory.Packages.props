@@ -7,7 +7,7 @@
     <PackageVersion Include="Ardalis.ListStartupServices" Version="1.1.4"/>
     <PackageVersion Include="Ardalis.Result" Version="10.1.0"/>
     <PackageVersion Include="Ardalis.Result.AspNetCore" Version="10.1.0"/>
-    <PackageVersion Include="Platy.Shared" Version="0.0.8"/>
+    <PackageVersion Include="Platy.Shared" Version="0.1.1"/>
     <PackageVersion Include="Ardalis.SmartEnum" Version="8.2.0"/>
     <PackageVersion Include="Ardalis.Specification" Version="8.0.0"/>
     <PackageVersion Include="Ardalis.Specification.EntityFrameworkCore" Version="8.0.0"/>
@@ -46,7 +46,9 @@
     <PackageVersion Include="Shouldly" Version="4.3.0"/>
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0"/>
-    <PackageVersion Include="Testcontainers" Version="4.3.0"/>
+    <PackageVersion Include="Testcontainers" Version="4.7.0"/>
+    <PackageVersion Include="Testcontainers.MsSql" Version="4.7.0"/>
+    <PackageVersion Include="Testcontainers.Xunit" Version="4.7.0"/>
     <PackageVersion Include="xunit" Version="2.9.3"/>
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2"/>
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.2"/>

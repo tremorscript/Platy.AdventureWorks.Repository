@@ -27,6 +27,9 @@
     <PackageReference Include="ReportGenerator"/>
     <PackageReference Include="NSubstitute"/>
     <PackageReference Include="Shouldly"/>
+    <PackageReference Include="Testcontainers" />
+    <PackageReference Include="Testcontainers.MsSql" />
+    <PackageReference Include="Testcontainers.Xunit" />
   </ItemGroup>
 
   <ItemGroup>
