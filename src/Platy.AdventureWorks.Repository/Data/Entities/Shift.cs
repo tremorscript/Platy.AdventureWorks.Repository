@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("Shift", Schema = "HumanResources")]
 public class Shift
-  : EntityBase<byte>
+  : HasDomainEventsBase, IIdentity<byte>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="Shift" /> class.
@@ -45,7 +45,7 @@ public class Shift
   [Key]
   [Column("ShiftID", TypeName = "tinyint")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new byte Id { get; set; }
+  public byte Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'Name'.

@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("SalesTaxRate", Schema = "Sales")]
 public class SalesTaxRate
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="SalesTaxRate" /> class.
@@ -41,7 +41,7 @@ public class SalesTaxRate
   [Key]
   [Column("SalesTaxRateID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'StateProvinceID'.

@@ -58,7 +58,7 @@ private void GenerateClass()
         if (property.ValueGenerated?.ToString() == "OnAdd") {
           var entityBaseClass = TemplateOptions.BaseClass.ToSafeName();
           using (CodeBuilder.Indent())
-              CodeBuilder.AppendLine($": {entityBaseClass}<{property.SystemType.ToType()}>");
+              CodeBuilder.AppendLine($": HasDomainEventsBase, {entityBaseClass}<{property.SystemType.ToType()}>");
           break;
         }
       }
@@ -178,10 +178,11 @@ private void GenerateProperties()
             }
         }
 
-         if(property.ValueGenerated?.ToString() == "OnAdd")
-         {
-             CodeBuilder.AppendLine($"public new {propertyType} {propertyName} {{ get; set; }}");
-        } else if (property.IsNullable == true && (property.SystemType.IsValueType || GeneratorOptions.Project.Nullable))
+//          if(property.ValueGenerated?.ToString() == "OnAdd")
+//          {
+//              CodeBuilder.AppendLine($"public new {propertyType} {propertyName} {{ get; set; }}");
+//         } else 
+        if (property.IsNullable == true && (property.SystemType.IsValueType || GeneratorOptions.Project.Nullable))
             CodeBuilder.AppendLine($"public {propertyType}? {propertyName} {{ get; set; }}");
         else if (GeneratorOptions.Project.Nullable && !property.SystemType.IsValueType)
             CodeBuilder.AppendLine($"public {propertyType} {propertyName} {{ get; set; }} = null!;");

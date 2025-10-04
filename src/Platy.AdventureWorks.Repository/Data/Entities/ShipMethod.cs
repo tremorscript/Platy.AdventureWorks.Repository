@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("ShipMethod", Schema = "Purchasing")]
 public class ShipMethod
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="ShipMethod" /> class.
@@ -34,7 +34,7 @@ public class ShipMethod
   [Key]
   [Column("ShipMethodID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'Name'.

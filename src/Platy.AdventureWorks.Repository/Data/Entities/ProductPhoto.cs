@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("ProductPhoto", Schema = "Production")]
 public class ProductPhoto
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="ProductPhoto" /> class.
@@ -45,7 +45,7 @@ public class ProductPhoto
   [Key]
   [Column("ProductPhotoID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'ThumbNailPhoto'.

@@ -13,7 +13,7 @@ public class EntityRepository<TEntity, TId, TReadModel, TCreateModel, TUpdateMod
   where TReadModel : IEntityReadModel
   where TCreateModel : IEntityCreateModel
   where TUpdateModel : IEntityUpdateModel
-  where TEntity : EntityBase<TId>
+  where TEntity : class, IIdentity<TId>
   where TId : struct, IEquatable<TId>
 {
   private readonly ILogger _logger;

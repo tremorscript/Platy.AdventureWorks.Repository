@@ -18,7 +18,7 @@ public class QueryRepository<TReadModel>(
 
   protected virtual async Task<Result<TReadModel>> ReadModel<TEntity, TId>(TId id,
     CancellationToken cancellationToken = default)
-    where TEntity : EntityBase<TId>
+    where TEntity : class, IIdentity<TId>
     where TId : struct, IEquatable<TId>
   {
     var model = await DataContext?
@@ -41,7 +41,7 @@ public class QueryRepository<TReadModel>(
   protected virtual async Task<Result<IReadOnlyList<TReadModel>>> QueryModel<TEntity, TId>(
     Expression<Func<TEntity, bool>>? predicate = null,
     CancellationToken cancellationToken = default)
-    where TEntity : EntityBase<TId>
+    where TEntity : class, IIdentity<TId>
     where TId : struct, IEquatable<TId>
   {
     var dbSet = DataContext?.Set<TEntity>();

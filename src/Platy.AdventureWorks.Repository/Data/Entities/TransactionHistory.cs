@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("TransactionHistory", Schema = "Production")]
 public class TransactionHistory
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="TransactionHistory" /> class.
@@ -41,7 +41,7 @@ public class TransactionHistory
   [Key]
   [Column("TransactionID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'ProductID'.

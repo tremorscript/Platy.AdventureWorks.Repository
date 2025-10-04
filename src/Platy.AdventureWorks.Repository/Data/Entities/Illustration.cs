@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("Illustration", Schema = "Production")]
 public class Illustration
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="Illustration" /> class.
@@ -45,7 +45,7 @@ public class Illustration
   [Key]
   [Column("IllustrationID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'Diagram'.

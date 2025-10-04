@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("PurchaseOrderHeader", Schema = "Purchasing")]
 public class PurchaseOrderHeader
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="PurchaseOrderHeader" /> class.
@@ -33,7 +33,7 @@ public class PurchaseOrderHeader
   [Key]
   [Column("PurchaseOrderID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'RevisionNumber'.

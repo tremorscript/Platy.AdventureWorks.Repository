@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("ShoppingCartItem", Schema = "Sales")]
 public class ShoppingCartItem
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="ShoppingCartItem" /> class.
@@ -41,7 +41,7 @@ public class ShoppingCartItem
   [Key]
   [Column("ShoppingCartItemID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'ShoppingCartID'.

@@ -155,7 +155,7 @@ script:
       fileName: '{Entity.Name}.cs'               # filename to save script output
       namespace: '{Project.Namespace}.Data.Entities'
       directory: '{Project.Directory}\Data\Entities'
-      baseClass: EntityBase
+      baseClass: IIdentity
       overwrite: true                                  # overwrite existing file
       merge: true
     - templatePath: '.\templates\cs-repository.csx'           # path to script file

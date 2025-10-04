@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("SalesOrderDetail", Schema = "Sales")]
 public class SalesOrderDetail
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="SalesOrderDetail" /> class.
@@ -38,7 +38,7 @@ public class SalesOrderDetail
   [Key]
   [Column("SalesOrderDetailID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'CarrierTrackingNumber'.

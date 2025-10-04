@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("ScrapReason", Schema = "Production")]
 public class ScrapReason
-  : EntityBase<short>
+  : HasDomainEventsBase, IIdentity<short>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="ScrapReason" /> class.
@@ -45,7 +45,7 @@ public class ScrapReason
   [Key]
   [Column("ScrapReasonID", TypeName = "smallint")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new short Id { get; set; }
+  public short Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'Name'.

@@ -7,7 +7,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("vJobCandidate", Schema = "HumanResources")]
 public class VJobCandidate
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="VJobCandidate" /> class.
@@ -26,7 +26,7 @@ public class VJobCandidate
   /// </value>
   [Column("JobCandidateID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'BusinessEntityID'.

@@ -8,7 +8,7 @@ namespace Platy.AdventureWorks.Repository.Data.Entities;
 /// </summary>
 [Table("ProductSubcategory", Schema = "Production")]
 public class ProductSubcategory
-  : EntityBase<int>
+  : HasDomainEventsBase, IIdentity<int>
 {
   /// <summary>
   ///   Initializes a new instance of the <see cref="ProductSubcategory" /> class.
@@ -33,7 +33,7 @@ public class ProductSubcategory
   [Key]
   [Column("ProductSubcategoryID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public new int Id { get; set; }
+  public int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'ProductCategoryID'.
