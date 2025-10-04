@@ -29,7 +29,6 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.2"/>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0"/>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2"/>
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2"/>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2"/>
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.0"/>
     <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.9"/>
@@ -45,11 +44,9 @@
     <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0"/>
     <PackageVersion Include="Serilog.Sinks.ApplicationInsights" Version="4.0.1-dev-00046"/>
     <PackageVersion Include="Shouldly" Version="4.3.0"/>
-    <PackageVersion Include="SQLite" Version="3.13.0"/>
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0"/>
     <PackageVersion Include="Testcontainers" Version="4.3.0"/>
-    <PackageVersion Include="Vogen" Version="7.0.1"/>
     <PackageVersion Include="xunit" Version="2.9.3"/>
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2"/>
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.2"/>

@@ -178,11 +178,10 @@ private void GenerateProperties()
             }
         }
 
-//         if(property.ValueGenerated?.ToString() == "OnAdd")
-//         {
-//             CodeBuilder.AppendLine($"public int Id {{ get; set; }}");
-//         } else 
-        if (property.IsNullable == true && (property.SystemType.IsValueType || GeneratorOptions.Project.Nullable))
+         if(property.ValueGenerated?.ToString() == "OnAdd")
+         {
+             CodeBuilder.AppendLine($"public new {propertyType} {propertyName} {{ get; set; }}");
+        } else if (property.IsNullable == true && (property.SystemType.IsValueType || GeneratorOptions.Project.Nullable))
             CodeBuilder.AppendLine($"public {propertyType}? {propertyName} {{ get; set; }}");
         else if (GeneratorOptions.Project.Nullable && !property.SystemType.IsValueType)
             CodeBuilder.AppendLine($"public {propertyType} {propertyName} {{ get; set; }} = null!;");

@@ -7,7 +7,7 @@ using NSubstitute;
 using Platy.AdventureWorks.Repository.Domain.Models;
 using Shouldly;
 
-namespace Platy.AdventureWorks.Repository.UnitTests;
+namespace Platy.AdventureWorks.Repository.Tests.Integration;
 
 /// <summary>
 ///   Unit tests for the AddressRepository.

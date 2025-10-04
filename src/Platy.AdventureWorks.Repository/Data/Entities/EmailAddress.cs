@@ -51,7 +51,7 @@ public class EmailAddress
   [Key]
   [Column("EmailAddressID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public int Id { get; set; }
+  public new int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'EmailAddress'.

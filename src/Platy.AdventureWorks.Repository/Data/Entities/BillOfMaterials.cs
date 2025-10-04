@@ -28,7 +28,7 @@ public class BillOfMaterials
   [Key]
   [Column("BillOfMaterialsID", TypeName = "int")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public int Id { get; set; }
+  public new int Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'ProductAssemblyID'.

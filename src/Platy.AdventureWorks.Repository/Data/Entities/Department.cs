@@ -45,7 +45,7 @@ public class Department
   [Key]
   [Column("DepartmentID", TypeName = "smallint")]
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-  public short Id { get; set; }
+  public new short Id { get; set; }
 
   /// <summary>
   ///   Gets or sets the property value representing column 'Name'.
