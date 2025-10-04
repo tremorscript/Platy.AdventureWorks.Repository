@@ -17,37 +17,37 @@ public class DatabaseFixture : IDisposable
   {
     
     // 1. Start the container in docker using the image chriseaton/adventureworks:lates.
-    // var msSqlContainer = new MsSqlBuilder()
-    //   .WithImage("chriseaton/adventureworks:latest")
-    //   .WithEnvironment("MSSQL_SA_PASSWORD", "Test123Test*")
-    //   .WithEnvironment("ACCEPT_EULA","Y")
-    //   .WithPortBinding(1433,1433)
-    //   .WithName("trusting_ritchie")
-    //   .WithWaitStrategy(Wait.ForUnixContainer().UntilMessageIsLogged("Server is ready."))
-    //   .Build();
-    // msSqlContainer.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-    
-    // 1. Create the image and then Start the container in docker using the Dockerfile.
-    var get = CommonDirectoryPath.GetSolutionDirectory();
-    _msSqlImage = new ImageFromDockerfileBuilder()
-      .WithDockerfileDirectory(CommonDirectoryPath.GetSolutionDirectory(), "docker")
-      .WithDockerfile("Dockerfile")
-      .WithName("platy.repository.tests/adventure-works-db:0.0.1")
-      .WithCleanUp(true)
-      .WithDeleteIfExists(true)
-      .WithBuildArgument("BAK_FILE", "AdventureWorks2022.bak")
-      .Build();
-    _msSqlImage.CreateAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-    _msSqlContainer = new MsSqlBuilder()
-      .WithImage("platy.repository.tests/adventure-works-db:0.0.1")
+    var msSqlContainer = new MsSqlBuilder()
+      .WithImage("chriseaton/adventureworks:latest")
       .WithEnvironment("MSSQL_SA_PASSWORD", "Test123Test*")
       .WithEnvironment("ACCEPT_EULA","Y")
-      .WithCleanUp(true)
       .WithPortBinding(1433,1433)
       .WithName("adventure-works-db")
       .WithWaitStrategy(Wait.ForUnixContainer().UntilMessageIsLogged("Server is ready."))
       .Build();
-    _msSqlContainer.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+    msSqlContainer.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+    
+    // 1. Create the image and then Start the container in docker using the Dockerfile.
+    
+    // _msSqlImage = new ImageFromDockerfileBuilder()
+    //   .WithDockerfileDirectory(CommonDirectoryPath.GetSolutionDirectory(), "docker")
+    //   .WithDockerfile("Dockerfile")
+    //   .WithName("platy.repository.tests/adventure-works-db:0.0.1")
+    //   .WithCleanUp(true)
+    //   .WithDeleteIfExists(true)
+    //   .WithBuildArgument("BAK_FILE", "AdventureWorks2022.bak")
+    //   .Build();
+    // _msSqlImage.CreateAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+    // _msSqlContainer = new MsSqlBuilder()
+    //   .WithImage("platy.repository.tests/adventure-works-db:0.0.1")
+    //   .WithEnvironment("MSSQL_SA_PASSWORD", "Test123Test*")
+    //   .WithEnvironment("ACCEPT_EULA","Y")
+    //   .WithCleanUp(true)
+    //   .WithPortBinding(1433,1433)
+    //   .WithName("adventure-works-db")
+    //   .WithWaitStrategy(Wait.ForUnixContainer().UntilMessageIsLogged("Server is ready."))
+    //   .Build();
+    // _msSqlContainer.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult();
     
     // 2. Get the connection string from user secrets
     var config = new ConfigurationBuilder()
