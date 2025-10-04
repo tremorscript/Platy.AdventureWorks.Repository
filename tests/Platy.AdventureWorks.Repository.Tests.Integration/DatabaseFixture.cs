@@ -53,10 +53,17 @@ public class DatabaseFixture : IDisposable
     var config = new ConfigurationBuilder()
       .AddUserSecrets<AddressRepositoryTest>()
       .Build();
+    
+    var connectionString = $"{config["AdventureWorksDb"]}";
 
+    if (string.IsNullOrEmpty(connectionString))
+    {
+      connectionString = Environment.GetEnvironmentVariable("ADVENTUREWORKSDB");
+    }
+    
     // 3. Add the adventureworks database to the service collection
     var serviceCollection = new ServiceCollection();
-    serviceCollection.AddAdventureWorkDatabase($"{config["AdventureWorksDb"]}");
+    serviceCollection.AddAdventureWorkDatabase(connectionString);
 
     // 4. Create the mapper configuration for the assembly
     serviceCollection.AddAutoMapper(cfg => { }, typeof(AddressProfile));
